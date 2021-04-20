@@ -1,3 +1,3 @@
-require "./wallet"
-
-get_value
+require "./lib/wallet"
+init = BinanceRequests.new
+Wallet.get_value

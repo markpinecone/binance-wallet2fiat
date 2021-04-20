@@ -1,3 +1,4 @@
+
 require "httparty"
 
 $currency = "USDT"
@@ -10,12 +11,9 @@ class BinanceRequests
   def symbols(symbol)
     self.class.get("/api/v3/ticker/price?symbol=#{symbol}#{$currency}")
   end
-end
 
-# makes a request and gets trading pair price
-class Price
-  def get(symbol)
-    request = BinanceRequests.new.symbols(symbol).to_a
+  def get_price(symbol)
+    request = symbols(symbol).to_a
     request[1][1]
   end
 end
